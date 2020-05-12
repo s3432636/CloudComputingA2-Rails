@@ -10,8 +10,16 @@ default: &default
   timeout: 5000
 
 development:
-  <<: *default
-  database: db/development.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: 5
+  timeout: 5000
+  database: rails-db
+  username: postgres
+  password: railscore1
+  host: "/cloudsql/flaskapp-272222:us-central1:rails-db"
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -25,9 +33,11 @@ production:
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  database: playerly-core.crfvadrqcnwv.us-east-1.rds.amazonaws.com
+  pool: 5
+  timeout: 5000
+  database: rails-db
   username: postgres
   password: railscore1
+  host: "/cloudsql/flaskapp-272222:us-central1:rails-db"
 
   

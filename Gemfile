@@ -50,3 +50,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'jwt'
 # Simple command to create services
 gem 'simple_command'
+
+gem "appengine", "~> 0.5.0"
