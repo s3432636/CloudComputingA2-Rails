@@ -120,8 +120,6 @@ build/
 # unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
 .rvmrc
 
-config/database.yml
-
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
