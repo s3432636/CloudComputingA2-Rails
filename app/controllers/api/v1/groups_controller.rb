@@ -1,7 +1,7 @@
 class Api::V1::GroupsController < ApplicationController
 # You can use this skip_before_action to disable authentication in this controller for debugging
 # (You won't need to attach an auth/bearer token to each request)
-# skip_before_action :authenticate_request, only: [:show, :create, :index]
+skip_before_action :authenticate_request, only: [:index]
 
 # GET /group/:id
    def show
@@ -17,12 +17,14 @@ class Api::V1::GroupsController < ApplicationController
 
 # POST /groups/register   
    def create
-    #  We will need to use this @current_user's id to add to the relevant table for group ownership/admin
-    #  @current_user = AuthorizeApiRequest.call(request.headers).result
-
-    @group = Group.new(group_params)       
-    @group.save
-    # Probably set the group owner/admin here
+    @current_user = AuthorizeApiRequest.call(request.headers).result
+    @group = Group.new(group_params)    
+    if @group.save
+      puts(@current_user.id)
+      puts(@group.id)
+      @membership = Membership.new(user_id: @current_user.id, group_id: @group.id, role_id: 4, is_banned: false)
+      @membership.save
+    end
     @groups = Group.all
     render json: @groups
    end

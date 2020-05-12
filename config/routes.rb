@@ -17,10 +17,26 @@ Rails.application.routes.draw do
       get 'groups', to: 'groups#index'
       get 'groups/:id', to: 'groups#show'
       post 'groups/register', to: 'groups#create'
+      get 'memberships', to: 'memberships#index'
+      post 'memberships/create', to: 'memberships#create'
+
       # end
     end
   end
   #config/routes.rb
   post 'authenticate', to: 'authentication#authenticate'
   get 'hello', to: 'hello#my_action'
+  
+  resources :genders
+  resources :sports
+  resources :approval_types
+  resources :group_types
+  resources :roles
+  resources :skill_levels
+  resources :users do
+    resources :groups
+  end
+  resources :user_sports
+  resources :memberships
+  
 end
