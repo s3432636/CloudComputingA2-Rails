@@ -12,15 +12,14 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resource :users do
-      end
+      get 'users/:id', to: 'users#show'
+      get 'users/', to: 'users#index'
       get 'groups', to: 'groups#index'
       get 'groups/:id', to: 'groups#show'
       post 'groups/register', to: 'groups#create'
       get 'memberships', to: 'memberships#index'
       post 'memberships/create', to: 'memberships#create'
-
-      # end
+      post 'users/create', to: 'users#create'
     end
   end
   #config/routes.rb

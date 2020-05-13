@@ -16,10 +16,10 @@ development:
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
   timeout: 5000
-  database: rails-db
+  database: rails-pg
   username: postgres
-  password: railscore1
-  host: "/cloudsql/flaskapp-272222:us-central1:rails-db"
+  password: railspg1
+  host: "rails-pg.crfvadrqcnwv.us-east-1.rds.amazonaws.com"
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -35,9 +35,9 @@ production:
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
   timeout: 5000
-  database: rails-db
+  database: rails-pg
   username: postgres
-  password: railscore1
-  host: "/cloudsql/flaskapp-272222:us-central1:rails-db"
+  password: railspg1
+  host: "postgres.crfvadrqcnwv.us-east-1.rds.amazonaws.com"
 
   

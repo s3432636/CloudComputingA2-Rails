@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-    skip_before_action :authenticate_request, only: [:create, :index, :show]
+    skip_before_action :authenticate_request, only: [:create, :save, :show, :index]
 
     # GET /players
     def index
@@ -29,7 +29,5 @@ class Api::V1::UsersController < ApplicationController
     def show
         @user = User.find(params[:id])
         render json: @user
-        # @users = User.all
-        # render json: @users
     end   
 end
