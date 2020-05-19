@@ -17,13 +17,13 @@ Rails.application.routes.draw do
       get 'groups', to: 'groups#index'
       get 'groups/:id', to: 'groups#show'
       post 'groups/register', to: 'groups#create'
+      post 'users/create', to: 'users#create'
       get 'memberships', to: 'memberships#index'
       post 'memberships/create', to: 'memberships#create'
-      post 'users/create', to: 'users#create'
     end
   end
   #config/routes.rb
-  post 'authenticate', to: 'authentication#authenticate'
+  get 'authenticate', to: 'authentication#authenticate'
   get 'hello', to: 'hello#my_action'
   
   resources :genders
