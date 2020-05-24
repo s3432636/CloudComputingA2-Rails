@@ -8,8 +8,8 @@ API only Rails application for the Playerly app.
 
 Before we begin, make sure that you have the following installed first before continuing.
 
- - 
- - 
+ - Ruby
+ - Rails
 
 ### Setup
 
@@ -40,8 +40,7 @@ This will return a json with a bearer token that you will then need to attach to
 
 ### GET /api/v1/teams
 
-You will need to add the bearer token to the request, and a call to this endpoint will return json in the format:
-
+This endpoint will return a list of all available teams.
 ```json
 [
     {
@@ -66,18 +65,3 @@ You will need to add the bearer token to the request, and a call to this endpoin
     }
 ]
 ```
-
-### POST /api/v1/teams#create
-
-You will need to add the bearer token to the request, and json in the following format:
-
-```json
-{
-    "team": {
-        "name": "Some Team Name",
-        "sport": "Baseball",
-        "image": "aurl.com/img.jpg"
-    }
-}
-```
-The admin field of the team will automatically be populated using the user ID of the current user, which is authorised using the bearer token.
